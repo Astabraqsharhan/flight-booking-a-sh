@@ -1,18 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import SearchFlights from "./pages/SearchFlights";
+import FlightsList from "./pages/FlightsList";
+import Dashboard from "./pages/Dashboard";
+
 
 function App() {
-
   return (
-    <div>
-    <h1 class="text-3xl font-bold underline mb-4">
-    Hello world!
-  </h1>
-  <button className="bg-blue-500 text-white p-2 rounded-md">Click me</button>
-  </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/search" element={<SearchFlights />} />
+        <Route path="/flights" element={<FlightsList />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
+
